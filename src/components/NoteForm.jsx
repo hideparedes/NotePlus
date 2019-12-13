@@ -1,4 +1,7 @@
 import React, { useState } from "react";
+import AddIcon from "@material-ui/icons/Add";
+import Fab from "@material-ui/core/Fab";
+import Zoom from "@material-ui/core/Zoom";
 
 export default function NoteForm(props) {
   const [newNote, setNewNote] = useState({
@@ -27,27 +30,41 @@ export default function NoteForm(props) {
     });
   }
 
+  const [expanded, setExpanded] = useState(false);
+
+  function handleClick() {
+    setExpanded(true);
+  }
+
   return (
     <div>
-      <form>
-        <input
-          type="text"
-          name="title"
-          placeholder="Title"
-          autoComplete="off"
-          onChange={handleChange}
-          value={newNote.title}
-        />
+      <form className="create-note">
+        {expanded && (
+          <input
+            type="text"
+            name="title"
+            placeholder="Title"
+            autoComplete="off"
+            onChange={handleChange}
+            value={newNote.title}
+          />
+        )}
+
         <textarea
           name="content"
           cols="30"
-          rows="3"
-          placeholder="Note..."
+          rows={expanded ? "3" : "1"}
+          placeholder={expanded ? "Content..." : "Take note..."}
           required
           onChange={handleChange}
           value={newNote.content}
+          onClick={handleClick}
         />
-        <button onClick={submitNote}> + </button>{" "}
+        <Zoom in={expanded}>
+          <Fab onClick={submitNote}>
+            <AddIcon />
+          </Fab>
+        </Zoom>
       </form>
     </div>
   );

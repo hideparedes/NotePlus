@@ -13,12 +13,26 @@ function App() {
     });
   }
 
+  function deleteNote(id) {
+    setList(prevNotes => {
+      return prevNotes.filter((note, index) => {
+        return index !== id;
+      });
+    });
+  }
+
   return (
     <div>
       <Header />
       <Form addNote={addNote} />
       {list.map((note, index) => (
-        <Note key={index} title={note.title} content={note.content} />
+        <Note
+          key={index}
+          id={index}
+          title={note.title}
+          content={note.content}
+          deleteNote={deleteNote}
+        />
       ))}
       <Footer />
     </div>

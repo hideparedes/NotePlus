@@ -65,10 +65,12 @@ footer {
   cursor: pointer;
   border: none;
   outline: none;
-  background-color: #7cbd1e;
+  color: #ccc;
+  background-color: #fff;
 }
 
 form {
+  position: relative;
   background-color: #fff;
   width: 480px;
   margin: 30px auto;
@@ -89,14 +91,14 @@ form textarea {
   font-family: inherit;
 }
 
-form button {
+form.create-note button {
   position: absolute;
   background-color: #7cbd1e;
-  bottom: -15px;
-  right: 25px;
-  padding: 5px;
-  height: 30px;
-  width: 30px;
+  color: #fff;
+  bottom: -18px;
+  right: 20px;
+  height: 35px;
+  width: 35px;
   border-radius: 50%;
   border: none;
   outline: none;
