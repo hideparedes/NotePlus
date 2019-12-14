@@ -1,13 +1,16 @@
-import React from 'react';
-import DescriptionIcon from '@material-ui/icons/Description';
-import EmojiObjectsIcon from '@material-ui/icons/EmojiObjects';
-import ImportContactsIcon from '@material-ui/icons/ImportContacts';
+import React from "react";
+import DescriptionIcon from "@material-ui/icons/Description";
+import Slide from "@material-ui/core/Slide";
 
 export default function Header() {
   return (
     <header>
-      
-      <h1><DescriptionIcon />Note+</h1>
+      <h1>
+        <Slide direction="right" in={true}>
+          <DescriptionIcon />
+        </Slide>{" "}
+        Note +
+      </h1>
     </header>
   );
 }

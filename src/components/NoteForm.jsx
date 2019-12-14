@@ -9,6 +9,8 @@ export default function NoteForm(props) {
     content: ""
   });
 
+  const [expanded, setExpanded] = useState(false);
+
   function handleChange(event) {
     const { name, value } = event.target;
     setNewNote(prevNote => {
@@ -28,9 +30,9 @@ export default function NoteForm(props) {
       title: "",
       content: ""
     });
-  }
 
-  const [expanded, setExpanded] = useState(false);
+    setExpanded(false);
+  }
 
   function handleClick() {
     setExpanded(true);
@@ -47,6 +49,7 @@ export default function NoteForm(props) {
             autoComplete="off"
             onChange={handleChange}
             value={newNote.title}
+            required
           />
         )}
 
