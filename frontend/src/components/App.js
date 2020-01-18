@@ -24,16 +24,18 @@ function App() {
   return (
     <div>
       <Header />
-      <Form addNote={addNote} />
-      {list.map((note, index) => (
-        <Note
-          key={index}
-          id={index}
-          title={note.title}
-          content={note.content}
-          deleteNote={deleteNote}
-        />
-      ))}
+      <div className="container">
+        <Form addNote={addNote} />
+        {list.map((note, index) => (
+          <Note
+            key={index}
+            id={index}
+            title={note.title}
+            content={note.content}
+            deleteNote={deleteNote}
+          />
+        ))}
+      </div>
       <Footer />
     </div>
   );
