@@ -1,0 +1,43 @@
+header {
+  /* background-color: #9c27b0; */
+  /* background: linear-gradient(to left,#833AB4,#E1306C); */
+  /* background: linear-gradient(to right, #833ab4, #fd1d1d, #fcb045); */
+  background-color: #09868b;
+  margin: auto 0px;
+  padding: 16px;
+
+}
+
+nav {
+  width: 80%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+}
+
+header h1 {
+  color: #fff;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.logo {
+  text-decoration: none;
+  color: black;
+}
+
+ul {
+  width: 40%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.nav-links {
+  text-decoration: none;
+  list-style: none;
+  color: black;
+}
+
+.nav-links:hover {
+  color: aliceblue;
+}

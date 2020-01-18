@@ -19,7 +19,7 @@ const CreateNote = props => {
   }
 
   function handleClick() {
-    setIsExpanded(!isExpanded);
+    setIsExpanded(true);
   }
 
   function submitNote(event) {
