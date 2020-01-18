@@ -1,7 +1,7 @@
 import React from "react";
 import DeleteIcon from "@material-ui/icons/Delete";
 
-export default function Note(props) {
+const NoteItem = props => {
   function handleClick() {
     props.deleteNote(props.id);
   }
@@ -15,4 +15,6 @@ export default function Note(props) {
       </button>
     </div>
   );
-}
+};
+
+export default NoteItem;

@@ -2,7 +2,7 @@ import React from "react";
 import DescriptionIcon from "@material-ui/icons/Description";
 import Slide from "@material-ui/core/Slide";
 
-export default function Header() {
+const Header = () => {
   return (
     <header>
       <nav>
@@ -24,4 +24,6 @@ export default function Header() {
       </nav>
     </header>
   );
-}
+};
+
+export default Header;
