@@ -4,9 +4,7 @@ const connectDB = require("./config/db");
 
 connectDB();
 
-app.use(express.json({
-  exteded: false
-}))
+app.use(express.json())
 
 app.use("/api/users", require("./routes/users"));
 
