@@ -32,5 +32,17 @@ const loginValidation = (data) => {
   return schema.validate(data);
 }
 
+// Input Validation
+const inputValidation = (data) => {
+
+  const schema = Joi.object({
+    title: Joi.string().required(),
+    content: Joi.string().required()
+  });
+
+  return schema.validate(data);
+}
+
 module.exports.registerValidation = registerValidation;
 module.exports.loginValidation = loginValidation;
+module.exports.inputValidation = inputValidation;
