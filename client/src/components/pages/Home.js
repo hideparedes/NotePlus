@@ -1,8 +1,18 @@
-import React, { useState } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import CreateNote from "../notes/CreateNote";
 import NoteItem from "../notes/NoteItem";
 
+import { AuthContext } from "../../context/auth/AuthProvider";
+
 const Home = () => {
+  const authContext = useContext(AuthContext);
+
+  useEffect(() => {
+    authContext.getUser();
+
+    // eslint-disable-next-line
+  }, []);
+
   const [list, setList] = useState([]);
 
   function addNote(newNote) {
@@ -20,7 +30,6 @@ const Home = () => {
   return (
     <div>
       <CreateNote addNote={addNote} />
-
       {list.map((note, index) => (
         <NoteItem
           key={index}
@@ -29,7 +38,7 @@ const Home = () => {
           content={note.content}
           deleteNote={deleteNote}
         />
-      ))}
+      ))}{" "}
     </div>
   );
 };

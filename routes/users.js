@@ -2,12 +2,22 @@ const express = require("express");
 const router = express.Router();
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
-
+const auth = require("../middleware/auth")
 const User = require("../models/User");
 const {
   registerValidation,
   loginValidation
 } = require("../validation");
+
+router.get("/auth", auth, async (req, res) => {
+  try {
+    const user = await User.findById(req.user.id).select("-password");
+    res.json(user)
+  } catch (error) {
+    console.error(error.message);
+    res.status(500).send("Server Error")
+  }
+})
 
 router.post("/register", async (req, res) => {
   const {
@@ -45,7 +55,10 @@ router.post("/register", async (req, res) => {
 
     await user.save();
 
-    res.send("Register Success");
+    res.json({
+      toke,
+      user: user.name
+    })
   } catch (error) {
     console.error(error.message);
     res.status(500).send(error);
@@ -93,9 +106,10 @@ router.post("/login", async (req, res) => {
       if (err) {
         return console.error(err.message);
       }
-      res.json(
-        token
-      )
+      res.json({
+        token,
+        user: user.name
+      })
 
     });
 
