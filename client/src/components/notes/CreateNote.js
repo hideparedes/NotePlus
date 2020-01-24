@@ -1,9 +1,17 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import AddIcon from "@material-ui/icons/Add";
 import Fab from "@material-ui/core/Fab";
 import Zoom from "@material-ui/core/Zoom";
 
-const CreateNote = props => {
+import { NoteContext } from "../../context/note/NoteProvider";
+
+const CreateNote = () => {
+  const noteContext = useContext(NoteContext);
+
+  const { addNote } = noteContext;
+
+
+
   const [createNote, setCreateNote] = useState({
     title: "",
     content: ""
@@ -13,18 +21,17 @@ const CreateNote = props => {
 
   const { title, content } = createNote;
 
-  function handleChange(event) {
-    const { name, value } = event.target;
-    setCreateNote({ ...createNote, [name]: value });
-  }
+  const handleChange = event => {
+    setCreateNote({ ...createNote, [event.target.name]: event.target.value });
+  };
 
-  function handleClick() {
+  const handleClick = () => {
     setIsExpanded(true);
   }
 
-  function submitNote(event) {
+  const submitNote = event => {
     event.preventDefault();
-    props.addNote(createNote);
+    addNote(createNote);
 
     setCreateNote({
       title: "",
@@ -32,7 +39,7 @@ const CreateNote = props => {
     });
 
     setIsExpanded(false);
-  }
+  };
 
   return (
     <>

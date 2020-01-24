@@ -9,14 +9,14 @@ export const AuthProvider = props => {
   const initalState = {
     isAuthenticated: false,
     user: null,
-    token: null,
+    token: localStorage.getItem("token"),
     error: null
   };
 
   const [state, dispatch] = useReducer(authReducer, initalState);
 
   const getUser = async () => {
-    setAuthHeader(localStorage.getItem("token"));
+    setAuthHeader(localStorage.token);
 
     try {
       const res = await axios.get("/api/users/auth");
@@ -30,13 +30,12 @@ export const AuthProvider = props => {
     }
   };
   const login = async userInfo => {
+    const config = {
+      headers: {
+        "Content-Type": "application/json"
+      }
+    };
     try {
-      const config = {
-        headers: {
-          "Content-Type": "application/json"
-        }
-      };
-
       const res = await axios.post("/api/users/login", userInfo, config);
 
       dispatch({
@@ -54,8 +53,13 @@ export const AuthProvider = props => {
   };
 
   const register = async userInfo => {
+    const config = {
+      headers: {
+        "Content-Type": "application/json"
+      }
+    };
     try {
-      const res = await axios.post("/api/users/register", userInfo);
+      const res = await axios.post("/api/users/register", userInfo, config);
 
       console.log(res.data);
 

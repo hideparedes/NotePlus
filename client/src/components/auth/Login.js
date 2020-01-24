@@ -10,6 +10,19 @@ const Login = props => {
 
   const { login, error, isAuthenticated, clearError } = authContext;
 
+  useEffect(() => {
+    if (isAuthenticated) {
+      props.history.push("/");
+    }
+
+    if (error !== null) {
+      setTimeout(() => {
+        clearError();
+      }, 5000);
+    }
+    // eslint-disable-next-line
+  }, [error, isAuthenticated, props.history]);
+
   const [user, setUser] = useState({
     email: "",
     password: ""
@@ -26,22 +39,8 @@ const Login = props => {
     login(user);
   };
 
-  // useEffect
 
-  useEffect(() => {
-    if (isAuthenticated) {
-      props.history.push("/");
-    }
-
-    if (error !== null) {
-      console.log(error);
-
-      setTimeout(() => {
-        clearError();
-      }, 5000);
-    }
-    // eslint-disable-next-line
-  }, [error, isAuthenticated, props.history]);
+  
 
   return (
     <div className="form-container">
