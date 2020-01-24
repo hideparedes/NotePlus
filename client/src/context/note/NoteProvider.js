@@ -8,7 +8,8 @@ export const NoteContext = createContext();
 export const NoteProvider = props => {
   const initialState = {
     notes: [],
-    error: null
+    error: null,
+    current: null
   };
 
   const [state, dispatch] = useReducer(noteReducer, initialState);
@@ -55,7 +56,26 @@ export const NoteProvider = props => {
     }
   };
 
-  const editNote = () => {};
+  const editNote = async newNote => {
+    const config = {
+      headers: {
+        "Content-Type": "application/json"
+      }
+    };
+    try {
+      const res = await axios.put(`/api/notes/${newNote._id}`, newNote, config);
+
+      console.log(res);
+
+      dispatch({ type: "EDIT_NOTE", payload: res.data });
+    } catch (error) {
+      console.log(error.response.message);
+      dispatch({
+        type: "NOTE_ERROR",
+        payload: error.response.message
+      });
+    }
+  };
 
   const deleteNote = async id => {
     try {
@@ -75,6 +95,14 @@ export const NoteProvider = props => {
     }
   };
 
+  const setCurrent = data => {
+    dispatch({ type: "SET_CURRENT", payload: data });
+  };
+
+  const clearCurrent = () => {
+    dispatch({ type: "CLEAR_CURRENT" });
+  };
+
   const clearNotes = () => {
     dispatch({
       type: "CLEAR_NOTES"
@@ -85,11 +113,14 @@ export const NoteProvider = props => {
       value={{
         notes: state.notes,
         error: state.error,
+        current: state.current,
         getNotes,
         addNote,
         editNote,
         deleteNote,
-        clearNotes
+        clearNotes,
+        setCurrent,
+        clearCurrent
       }}
     >
       {props.children}

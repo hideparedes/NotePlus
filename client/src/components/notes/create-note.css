@@ -1,0 +1,52 @@
+form.create-note {
+  position: relative;
+  background-color: #fff;
+  width: 480px;
+  margin: 30px auto;
+  padding: 12px 16px;
+  border-radius: 8px;
+  position: relative;
+  box-shadow: 0 2px 5px #ccc;
+}
+
+form.create-note input,
+form.create-note textarea {
+  width: 100%;
+  border: none;
+  padding: 4px;
+  font-size: 1.2em;
+  outline: none;
+  resize: none;
+  font-family: inherit;
+  cursor: pointer;
+}
+.create-btn {
+  position: absolute;
+  bottom: 0px;
+  right: 5px;
+}
+
+form.create-note button {
+  margin-right: 10px;
+  background-color: #76c1d4;
+  color: #fff;
+  bottom: -18px;
+  right: 20px;
+  height: 35px;
+  width: 35px;
+  border-radius: 50%;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+form.create-note button:hover {
+  background-color: royalblue;
+}
+
+form.create-note button:nth-child(2):hover{
+  background-color: red;
+}
+/* form.create-note button:nth-child(2):hover{
+  background-color: grey;
+} */

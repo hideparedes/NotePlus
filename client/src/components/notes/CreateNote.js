@@ -2,15 +2,15 @@ import React, { useState, useContext } from "react";
 import AddIcon from "@material-ui/icons/Add";
 import Fab from "@material-ui/core/Fab";
 import Zoom from "@material-ui/core/Zoom";
-
+import CloseIcon from "@material-ui/icons/Close";
 import { NoteContext } from "../../context/note/NoteProvider";
+
+import "./create-note.css";
 
 const CreateNote = () => {
   const noteContext = useContext(NoteContext);
 
   const { addNote } = noteContext;
-
-
 
   const [createNote, setCreateNote] = useState({
     title: "",
@@ -25,9 +25,9 @@ const CreateNote = () => {
     setCreateNote({ ...createNote, [event.target.name]: event.target.value });
   };
 
-  const handleClick = () => {
+  const handleOpen = () => {
     setIsExpanded(true);
-  }
+  };
 
   const submitNote = event => {
     event.preventDefault();
@@ -40,6 +40,10 @@ const CreateNote = () => {
 
     setIsExpanded(false);
   };
+
+  const handleClose = () => {
+    setIsExpanded(false)
+  }
 
   return (
     <>
@@ -63,13 +67,21 @@ const CreateNote = () => {
           value={content}
           placeholder={isExpanded ? "Content..." : "Create Note..."}
           onChange={handleChange}
-          onClick={handleClick}
+          onClick={handleOpen}
         ></textarea>
-        <Zoom in={isExpanded}>
-          <Fab onClick={submitNote}>
-            <AddIcon />
-          </Fab>
-        </Zoom>
+        <div className="create-btn">
+          <Zoom in={isExpanded}>
+            <Fab onClick={submitNote}>
+              <AddIcon />
+            </Fab>
+          </Zoom>
+
+          <Zoom in={isExpanded}>
+            <Fab onClick={handleClose} className="close">
+              <CloseIcon />
+            </Fab>
+          </Zoom>
+        </div>
       </form>
     </>
   );

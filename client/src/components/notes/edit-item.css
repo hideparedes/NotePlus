@@ -1,0 +1,53 @@
+.edit-container {
+  position: absolute;
+  background-color: #fff;
+  width: 400px;
+  margin: 16px;
+  padding: 10px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px #ccc;
+  left: 50%;
+  top: 25%;
+  transform: translate(-50%, -25%);
+}
+
+.edit-container form {
+  position: relative;
+}
+
+.edit-container form input,
+.edit-container form textarea {
+  width: 100%;
+  border: none;
+  padding: 4px;
+  font-size: 1.2em;
+  outline: none;
+  resize: none;
+  font-family: inherit;
+}
+
+.btn {
+  position: absolute;
+  bottom: -23px;
+  right: 10px;
+}
+
+.edit-btn {
+  color: #fff;
+  margin-right: 5px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+  height: 25px;
+  width: 26px;
+  border-radius: 50%;
+}
+
+.done {
+  background-color: #76c1d4;
+}
+
+.cancel {
+  background-color: red;
+}
