@@ -2,7 +2,7 @@ header {
   /* background-color: #9c27b0; */
   /* background: linear-gradient(to left,#833AB4,#E1306C); */
   /* background: linear-gradient(to right, #833ab4, #fd1d1d, #fcb045); */
-  background-color: #09868b;
+  background-color: #f7c331;
   margin: auto 0px;
   padding: 16px;
 
@@ -16,14 +16,12 @@ nav {
 }
 
 header h1 {
-  color: #fff;
+  display: flex;
+  align-items: center;
+  color: #3c3c3c;
   font-family: 'Montserrat', sans-serif;
 }
 
-.logo {
-  text-decoration: none;
-  color: black;
-}
 
 ul {
   width: 40%;
@@ -35,10 +33,20 @@ ul {
 .nav-links {
   text-decoration: none;
   list-style: none;
-  color: black;
+  color: #3c3c3c;
   cursor: pointer;
 }
 
 .nav-links:hover {
-  color: aliceblue;
+  color: #fff;
+}
+
+@media(max-width: 500px){
+  nav{
+    width: 100%;
+  }
+
+  ul {
+    width: 50%;
+  }
 }

@@ -9,6 +9,7 @@
   left: 50%;
   top: 25%;
   transform: translate(-50%, -25%);
+  animation: fadeIn ease-out 0.2s;
 }
 
 .edit-container form {
@@ -34,20 +35,30 @@
 
 .edit-btn {
   color: #fff;
+  background-color: #ccc;
   margin-right: 5px;
   border: none;
   outline: none;
   cursor: pointer;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
-  height: 25px;
-  width: 26px;
+  height: 30px;
+  width: 30px;
   border-radius: 50%;
 }
 
-.done {
-  background-color: #76c1d4;
+.done:hover {
+  background-color: #33b5e5;
 }
 
-.cancel {
-  background-color: red;
+.cancel:hover {
+  background-color: #ff4444;
+}
+
+@keyframes fadeIn{
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }

@@ -29,6 +29,9 @@
   background-color: rgb(38, 218, 38);
   cursor: pointer;
 } */
+.error-message {
+  color: #ff4444;
+}
 
 h5 {
   margin: 10px 0;
@@ -36,5 +39,5 @@ h5 {
 
 .already {
   text-decoration: none;
-  color: #03a9f4;
+  color: #0099cc;
 }

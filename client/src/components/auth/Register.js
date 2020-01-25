@@ -33,7 +33,6 @@ const Register = props => {
     }
 
     if (error !== null) {
-      console.log(error);
       setTimeout(() => {
         clearError();
       }, 5000);
@@ -44,8 +43,8 @@ const Register = props => {
 
   return (
     <div className="form-container">
-      <h1>Sign Up</h1>
-      {error && <p style={{ color: "red" }}>{error}</p>}
+      <h1>Register</h1>
+      {error && <p className="error-message">{error}</p>}
       <form onSubmit={onSubmit}>
         <div className="form-group">
           <input
@@ -77,7 +76,12 @@ const Register = props => {
             placeholder="Password"
           />
         </div>
-        <Button variant="contained" type="submit" color="primary">
+        <Button
+          variant="contained"
+          type="submit"
+          color="primary"
+          style={{ color: "#fff" }}
+        >
           Sign Up
         </Button>
       </form>

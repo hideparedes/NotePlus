@@ -27,7 +27,7 @@ const Header = () => {
 
   const loggedUser = (
     <>
-      <li style={{ listStyle: "none" }}>Hello, {user && user.name}</li>
+      <li style={{ listStyle: "none", color:"#3c3c3c" }}>Hello, {user && user.name}</li>
       <li onClick={userLogout} className="nav-links">
         Logout
       </li>
@@ -50,7 +50,7 @@ const Header = () => {
       <nav>
         <h1>
           <Slide direction="right" in={true}>
-            <DescriptionIcon />
+            <DescriptionIcon style={{color: "#fff"}}/>
           </Slide>
           Note +
         </h1>

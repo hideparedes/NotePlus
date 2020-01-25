@@ -42,12 +42,12 @@ const CreateNote = () => {
   };
 
   const handleClose = () => {
-    setIsExpanded(false)
-  }
+    setIsExpanded(false);
+  };
 
   return (
     <>
-      <form className="create-note">
+      <form onSubmit={submitNote} className="create-note">
         {isExpanded && (
           <input
             type="text"
@@ -68,10 +68,11 @@ const CreateNote = () => {
           placeholder={isExpanded ? "Content..." : "Create Note..."}
           onChange={handleChange}
           onClick={handleOpen}
+          required
         ></textarea>
         <div className="create-btn">
           <Zoom in={isExpanded}>
-            <Fab onClick={submitNote}>
+            <Fab type="submit">
               <AddIcon />
             </Fab>
           </Zoom>

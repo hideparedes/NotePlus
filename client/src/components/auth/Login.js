@@ -39,13 +39,10 @@ const Login = props => {
     login(user);
   };
 
-
-  
-
   return (
     <div className="form-container">
       <h1>Login</h1>
-      {error && <p style={{ color: "red" }}>{error}</p>}
+      {error && <p className="error-message" >{error}</p>}
       <form onSubmit={onSubmit}>
         <div className="form-group">
           <input
@@ -67,7 +64,12 @@ const Login = props => {
             placeholder="Password"
           />
         </div>
-        <Button variant="contained" type="submit" color="primary">
+        <Button
+          variant="contained"
+          type="submit"
+          color="primary"
+          style={{ color: "#fff" }}
+        >
           Login
         </Button>
       </form>

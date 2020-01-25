@@ -8,6 +8,7 @@
 
 html {
   font-family: 'Roboto', sans-serif;
+  /* width: 100%; */
 }
 
 body {
@@ -16,11 +17,14 @@ body {
   background-image: url("https://www.transparenttextures.com/patterns/connected.png");
 }
 
-
-/* .container {
-  width: 80%;
-  margin: 0 auto;
+/* #root {
+  width: 100%;
 } */
+.container {
+  width: 90%;
+  margin: 0 auto;
+}
+
 
 
 ::-webkit-scrollbar {

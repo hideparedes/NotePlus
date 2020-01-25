@@ -6,6 +6,9 @@
   border-radius: 8px;
   box-shadow: 0 2px 5px #ccc;
   float: left;
+
+  
+ 
 }
 
 .note h1 {
@@ -33,9 +36,15 @@
 }
 
 .note button:hover {
-  color: black;
+  color: #33b5e5;
 }
 
 .note button.delete-btn:hover {
-  color: red;
+  color: #ff4444;
 }
+
+/* @media (max-width: 500px){
+  .note {
+    width: 185px;
+  }
+} */

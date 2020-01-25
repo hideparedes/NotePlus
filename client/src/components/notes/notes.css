@@ -1,0 +1,12 @@
+.notes-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+}
+
+@media (max-width: 600px){
+  .notes-container {
+    justify-items: center;
+    grid-template-columns: 1fr,1fr;
+  }
+}
+

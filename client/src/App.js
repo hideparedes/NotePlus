@@ -9,7 +9,7 @@ import Login from "./components/auth/Login";
 import PrivateRoute from "./components/routes/PrivateRoute";
 
 import { MuiThemeProvider } from "@material-ui/core/styles";
-import theme from "./colorPalette";
+import theme from "./utils/colorPalette";
 
 import { AuthProvider } from "./context/auth/AuthProvider";
 import { NoteProvider } from "./context/note/NoteProvider";

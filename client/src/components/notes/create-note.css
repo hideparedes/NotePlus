@@ -20,6 +20,7 @@ form.create-note textarea {
   font-family: inherit;
   cursor: pointer;
 }
+
 .create-btn {
   position: absolute;
   bottom: 0px;
@@ -28,7 +29,7 @@ form.create-note textarea {
 
 form.create-note button {
   margin-right: 10px;
-  background-color: #76c1d4;
+  background-color: #ccc;
   color: #fff;
   bottom: -18px;
   right: 20px;
@@ -40,13 +41,17 @@ form.create-note button {
   cursor: pointer;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
 }
+
 form.create-note button:hover {
-  background-color: royalblue;
+  background-color: #33b5e5;
 }
 
-form.create-note button:nth-child(2):hover{
-  background-color: red;
+form.create-note button:nth-child(2):hover {
+  background-color: #ff4444;
 }
-/* form.create-note button:nth-child(2):hover{
-  background-color: grey;
-} */
+
+@media (max-width: 520px) {
+  form.create-note {
+    width: 350px;
+  }
+}
