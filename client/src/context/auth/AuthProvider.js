@@ -43,8 +43,6 @@ export const AuthProvider = props => {
         payload: res.data
       });
     } catch (error) {
-      console.log(error.response.data.message);
-
       dispatch({
         type: "LOGIN_FAIL",
         payload: error.response.data.message
@@ -61,11 +59,8 @@ export const AuthProvider = props => {
     try {
       const res = await axios.post("/api/users/register", userInfo, config);
 
-      console.log(res.data);
-
       dispatch({ type: "REGISTER_SUCCESS", payload: res.data });
     } catch (error) {
-      console.log(error.response.data.message);
       dispatch({ type: "REGISTER_FAIL", payload: error.response.data.message });
     }
   };

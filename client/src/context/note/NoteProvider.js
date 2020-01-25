@@ -23,8 +23,6 @@ export const NoteProvider = props => {
         payload: res.data
       });
     } catch (error) {
-      console.log(error.response.message);
-
       dispatch({
         type: "NOTE_ERROR",
         payload: error.response.message
@@ -47,8 +45,6 @@ export const NoteProvider = props => {
         payload: res.data
       });
     } catch (error) {
-      console.log(error.response.message);
-
       dispatch({
         type: "NOTE_ERROR",
         payload: error.response.message
@@ -65,11 +61,8 @@ export const NoteProvider = props => {
     try {
       const res = await axios.put(`/api/notes/${newNote._id}`, newNote, config);
 
-      console.log(res);
-
       dispatch({ type: "EDIT_NOTE", payload: res.data });
     } catch (error) {
-      console.log(error.response.message);
       dispatch({
         type: "NOTE_ERROR",
         payload: error.response.message
@@ -86,8 +79,6 @@ export const NoteProvider = props => {
         payload: id
       });
     } catch (error) {
-      console.log(error.response.message);
-
       dispatch({
         type: "NOTE_ERROR",
         payload: error.response.message
