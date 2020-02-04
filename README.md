@@ -9,5 +9,5 @@ user1 {
 
 user2 {
   email: test2@test.com
-  password:654321
+  password: 654321
 }
